@@ -1,6 +1,10 @@
-function ButtonRemove(props){
+function MyButton(props){
 return(
-    <button onClick={props.handlerRemove}>{props.text}</button>
+    <button 
+        type = {props.type ? props.type : 'button'} 
+        onClick = {props.handleClick}>
+    {props.text}
+    </button>
 )}
 
-export default ButtonRemove
+export default MyButton

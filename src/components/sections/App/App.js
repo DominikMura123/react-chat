@@ -10,13 +10,20 @@ import MyButton from '../../atoms/MyButton';
 
 function App() {
 
+  const [seconds, setSeconds] = useState(0);
   const [messageValue, setMessageValue] = useState('');
   const [authorValue, setAuthorValue] = useState('');
   const [messages, setMessages] = useState([]);
 
   useEffect(() =>{
     getFromJsonServer();
-  }, [])
+
+    let interval = setInterval(() => {
+      setSeconds(seconds => seconds + 1);
+    }, 1000);
+    return () => clearInterval(interval);
+
+  }, [seconds])
 
   const handleSubmit = (ev) =>{
     ev.preventDefault();
@@ -90,7 +97,7 @@ function App() {
         messages = {messages}
         handleDeleteMessage = {handleDeleteMessage}/>
       <MyButton 
-        handlerRemove = {handleDeleteAll}
+        handleClick = {handleDeleteAll}
         text = 'Remove All Message'
       ></MyButton>  
     </div>

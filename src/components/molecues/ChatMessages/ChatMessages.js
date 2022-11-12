@@ -10,7 +10,7 @@ function ChatMessages(props){
                     author: {message.author}
                 <MyButton
                     text = 'X'
-                    handlerRemove = {() => props.handleDeleteMessage(message.id)}
+                    handleClick = {() => props.handleDeleteMessage(message.id)}
                 >
                 </MyButton>
                 </li>
